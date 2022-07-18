@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="permis" pageWidth="595" pageHeight="450" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba1c03ad-df22-44ff-bf5a-aa7e53693341">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bd_permis_service"/>
+	<import value="org.apache.commons.codec.binary.Base64"/>
+	<parameter name="numpermis" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from permis where permis.id=$P{numpermis}  limit 1]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="categorie_permis" class="java.lang.String"/>
+	<field name="date_delivrance" class="java.sql.Timestamp"/>
+	<field name="date_expiration" class="java.sql.Timestamp"/>
+	<field name="date_naissance" class="java.sql.Timestamp"/>
+	<field name="groupe_sanguin" class="java.lang.String"/>
+	<field name="img" class="java.lang.Object"/>
+	<field name="nom" class="java.lang.String"/>
+	<field name="nouveau_permis" class="java.lang.Object"/>
+	<field name="numero_permis" class="java.lang.String"/>
+	<field name="prenom" class="java.lang.String"/>
+	<variable name="photo" class="java.lang.String">
+		<variableExpression><![CDATA[$F{img}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="91" height="40" uuid="f2fac327-4199-4588-b607-f21440f57a91"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="30" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="0" width="300" height="30" uuid="dbc58388-81fd-4993-95c5-60ff807d888f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[REPUBLIQUE DU SENEGAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="130" y="30" width="300" height="39" uuid="472e15e8-556c-4288-93a5-a572ade70334"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERMIS DE CONDUIRE]]></text>
+			</staticText>
+			<image>
+				<reportElement x="467" y="3" width="91" height="68" uuid="e616f4b6-b348-45e9-8e98-77ea7912d0e7"/>
+				<imageExpression><![CDATA["/opt/sn.PNG"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="300" splitType="Stretch">
+			<staticText>
+				<reportElement x="151" y="15" width="81" height="21" uuid="6d6c78d4-25da-4a1c-9556-114e21356c22"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[1. Nom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="62" width="81" height="21" uuid="a604bf46-ad88-4b44-b033-d7cd9ade070d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[2. Prénom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="104" width="150" height="21" uuid="22d7a358-e057-4237-a135-6637affa4ee3"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[3. Date et lieu de naissance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="146" width="89" height="21" uuid="e5f78987-0b28-40be-a7bc-3d4763e434cf"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[4. Date Délivrance]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="144" width="93" height="24" uuid="6f349586-8d1d-440b-bd04-8bd93f46276a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[5. Date d'expiration]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="186" width="99" height="21" uuid="13e07ddd-3a31-4c24-a55e-4da4acfa140c"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[6. Délivré par]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="219" width="99" height="21" uuid="fee4eff0-0bc6-4430-9c01-7997a4fea891"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[7. Numéro de permis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="252" width="99" height="21" uuid="f9b37f8b-36ce-4d0d-a965-ee05c76336dc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[8. Catégorie]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-5" y="13" width="139" height="2" uuid="fccf2304-afa6-4b13-9ccc-69586362532c"/>
+			</line>
+			<line>
+				<reportElement x="-7" y="254" width="141" height="1" uuid="fe64cc23-3561-4c6f-8a4a-db6ae644d62c"/>
+			</line>
+			<line>
+				<reportElement x="134" y="15" width="1" height="240" uuid="52f76d88-8d4f-48f1-8941-a28741d9c34b"/>
+			</line>
+			<line>
+				<reportElement x="-6" y="14" width="1" height="240" uuid="48c3a1b5-94bb-478b-9b9a-a0472a5a442d"/>
+			</line>
+			<line>
+				<reportElement x="498" y="218" width="1" height="50" uuid="68c7198f-1653-46cd-b940-fa5471c98800"/>
+			</line>
+			<line>
+				<reportElement x="552" y="218" width="1" height="50" uuid="bd19fb07-b416-4b74-8dfa-4f343d7d4eb3"/>
+			</line>
+			<line>
+				<reportElement x="499" y="268" width="53" height="1" uuid="e7d41908-d087-44be-b6e5-cefe007a0526"/>
+			</line>
+			<line>
+				<reportElement x="498" y="218" width="53" height="1" uuid="84f787d5-d8d8-4562-819d-212fcd068ab9"/>
+			</line>
+			<textField>
+				<reportElement x="151" y="37" width="81" height="23" uuid="c4bf7711-1707-4895-bdb9-5379a1a15294"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="83" width="81" height="17" uuid="04579ca2-f9c4-4adf-81e9-47c9c54804f7"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prenom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="151" y="127" width="150" height="17" uuid="a75da373-d489-4e8a-b7c4-4ffea6a3de79"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date_naissance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="144" width="110" height="23" uuid="f8ed12d1-3de8-4979-9835-a22e5a45d98a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date_delivrance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="144" width="110" height="24" uuid="f540612d-57cf-4928-a17b-55a1dd5935bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{date_expiration}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="252" width="110" height="21" uuid="89013d0f-5277-4f31-8d59-16aba4a249b0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{categorie_permis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="220" width="110" height="18" uuid="9d10c2fd-a852-4c7a-89ab-7ce2d25ff8d2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero_permis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="186" width="81" height="32" uuid="66427b5d-7f05-474b-b388-a126fa7684a5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{groupe_sanguin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="251" y="185" width="100" height="22" uuid="a11b01e0-c09b-4e0d-98ef-881d24ff6098"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MITTD]]></text>
+			</staticText>
+			<image>
+				<reportElement x="-1" y="17" width="131" height="238" uuid="0e45b7ba-c6da-4750-9ca7-eaface3ad7c7"/>
+				<imageExpression><![CDATA["/opt/pict.PNG"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="501" y="219" width="50" height="49" uuid="e093f4af-26dc-475a-832f-171fe8d85f46"/>
+				<imageExpression><![CDATA["/opt/pict.PNG"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="467" y="17" width="80" height="80" uuid="f389be43-6d2e-414c-95dd-cd8ee0935b8d"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+new com.google.zxing.qrcode.QRCodeWriter().encode(
+"Groupe Sanguin:" +$F{groupe_sanguin}+"\n  "
++"Prenom:"+$F{prenom}+"  \n"
++"Nom:"+$F{nom}+"\n "
++"Numero permis:"+$F{numero_permis},
+com.google.zxing.BarcodeFormat.QR_CODE, 300, 300))]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

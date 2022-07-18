@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ticketRv" pageWidth="595" pageHeight="400" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e84d5662-3a7f-485c-bb9b-e19322c0bd35">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="bd_rvmedical_service"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="numrv" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from rvmedical where rvmedical.id= $P{numrv} limit 1]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="adresse" class="java.lang.String"/>
+	<field name="age" class="java.lang.Integer"/>
+	<field name="date_naissance" class="java.sql.Timestamp"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="lieu_naissange" class="java.lang.String"/>
+	<field name="nom" class="java.lang.String"/>
+	<field name="prenom" class="java.lang.String"/>
+	<field name="profession" class="java.lang.String"/>
+	<field name="rv" class="java.sql.Timestamp"/>
+	<field name="sexe" class="java.lang.String"/>
+	<field name="specialite" class="java.lang.String"/>
+	<field name="telephone" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="139" splitType="Stretch">
+			<image>
+				<reportElement x="461" y="0" width="91" height="79" uuid="d629477f-6172-4c81-9181-3289a0fa5b1d"/>
+				<imageExpression><![CDATA["/opt/im.PNG"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="-1" y="0" width="171" height="23" uuid="fbc818bd-438d-425e-a54e-d422674e08db"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CABINET MEDICAL​]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="24" width="170" height="25" uuid="379dedd1-8877-4e9d-8395-7e777f62d8f9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sérigne Doudou FALLA​]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="50" width="280" height="80" uuid="928cbeff-3f0b-43b2-81f5-05f70765b62d"/>
+				<textElement verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[Sicap Mbao, rue 213​
+Dakar, Sénégal​
+Tél : +221 77 285 85 74​
+Email : contact@cabinet-medical.com​]]></text>
+			</staticText>
+			<image>
+				<reportElement x="290" y="-1" width="80" height="80" uuid="32fd73d1-83ec-4b6d-a8a7-aa370c86dc58"/>
+				<imageExpression><![CDATA[com.google.zxing.client.j2se.MatrixToImageWriter.toBufferedImage(
+new com.google.zxing.qrcode.QRCodeWriter().encode(
+"Date RV:" +$F{rv}+"\n  "
++"Prenom:"+$F{prenom}+"  \n"
++"Nom:"+$F{nom}+"\n "
++"Sexe:"+$F{sexe},
+com.google.zxing.BarcodeFormat.QR_CODE, 300, 300))]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="555" height="30" uuid="ed98e308-e762-4768-ae1b-0d20e1ff60d8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VOTRE PROCHAIN RENDEZ-VOUS MEDICAL]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="0" width="181" height="38" uuid="4e9aeb32-a185-4db8-b440-c2247b9edf51"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Prénom et nom]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="0" width="141" height="38" uuid="46d13298-e575-4781-a78e-7c399e9abde5"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Spécialiste à consulter​]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="0" width="234" height="38" uuid="59d5ea1a-db23-4610-8d2b-15397f63a607"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date et Heure de rendez-vous]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="-1" y="0" width="181" height="43" uuid="6e9eb1c1-3706-4c36-8cde-8cb9408da09c"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="0" width="141" height="43" uuid="4e40a93d-b6b6-4fd8-a47b-29d867d752c2"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{specialite}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="9" width="67" height="26" uuid="4a529c52-7e5c-419c-bdb4-584c80d2a637"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{prenom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="321" y="0" width="234" height="43" uuid="b01aa1a9-738a-4411-8ee2-49e6a0980cbc"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rv}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="4" width="555" height="46" uuid="0ac4b474-0a6e-4940-b900-08d0094b8b26"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="14"/>
+				</textElement>
+				<text><![CDATA[En cas d’empechement, veuillez nous prévenir 24 heures à l'avance. Vous vous éviterez ainsi les frais relatifs à la facturation du rendez-vous manqué.​]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

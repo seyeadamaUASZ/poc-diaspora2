@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - TokenRelay
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - DELETE
+              - PUT
